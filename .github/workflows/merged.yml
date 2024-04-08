@@ -31,7 +31,7 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: rr-ohini/cicd_assignment:latest
+          tags: rohini1496/cicd_assignment:latest
  
   validate-docker-image:
     name: Validating Docker Image
@@ -43,14 +43,14 @@ jobs:
         uses: actions/checkout@v2
  
       - name: Pulling Docker image
-        run: docker pull rr-ohini/cicd_assignment:latest
+        run: docker pull rohini1496/cicd_assignment:latest
  
       - name: Run Docker container
-        run: docker run rr-ohini/cicd_assignment:latest
+        run: docker run rohini1496/cicd_assignment:latest
  
       - name: Extract and validate score
         run: |
-          output_score=$(docker run rr-ohini/cicd_assignment:latest | grep -oP '0\.\d+')
+          output_score=$(docker run rohini1496/cicd_assignment:latest | grep -oP '0\.\d+')
           if (( $(echo "$output_score > 0.30" | bc -l) )); then
             echo "Score is greater than 0.30"
             exit 0
