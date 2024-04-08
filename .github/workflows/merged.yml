@@ -50,7 +50,7 @@ jobs:
  
       - name: Extract and validate score
         run: |
-          output_score=$(docker run nivedyaps/cicd_assignment:latest | grep -oP '0\.\d+')
+          output_score=$(docker run rr-ohini/cicd_assignment:latest | grep -oP '0\.\d+')
           if (( $(echo "$output_score > 0.30" | bc -l) )); then
             echo "Score is greater than 0.30"
             exit 0
